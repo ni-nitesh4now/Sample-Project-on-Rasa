@@ -1,0 +1,48 @@
+python -m venv env
+
+source env/bin/activate
+
+pip install rasa
+
+error{
+    pip install confluent-kafka
+
+    if(error){
+        sudo apt-get install librdkafka-dev
+        pip install confluent-kafka
+    }
+    still error?
+    {
+        git clone https://github.com/edenhill/librdkafka.git
+        cd librdkafka
+        ./configure
+        make
+        sudo make install
+        pip install --no-cache-dir confluent-kafka
+
+    }
+
+}
+
+
+new setup?{
+    pip install pandas
+    pip install numpy
+    pip install spacy
+    python -m spacy download en_core_web_md
+}
+rasa run actions
+
+
+t2:
+rasa train
+error{
+    pip install "SQLAlchemy<2.0"
+
+    rasa train --config config.yml --domain domain.yml --data nlu.yml stories.yml rules.yml
+}
+
+
+rasa run --enable-api --cors "*"
+
+rasa shell

@@ -1,0 +1,456 @@
+version: "3.1"
+
+stories:
+  - story: greet user
+    steps:
+      - intent: greet
+      - action: action_session_start
+    
+
+  - story: user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+      
+  - story: total sales path
+    steps:
+      - intent: ask_total_sales
+      - action: action_total_sales
+
+  - story: user asks total sales last month
+    steps:
+      - intent: ask_total_sales_last_month
+      - action: action_total_sales_last_month
+
+  - story: user asks total sales last quarter
+    steps:
+      - intent: ask_sales_last_quarter
+      - action: action_sales_last_quarter
+
+  - story: user asks sales for specific month and year
+    steps:
+      - intent: ask_sales_for_specific_month_year
+      - action: action_sales_for_specific_month_year
+
+  - story: user asks which country had highest sales last quarter
+    steps:
+      - intent: ask_country_highest_sales_last_quarter
+      - action: action_country_highest_sales_last_quarter
+
+  - story: user asks sales figures for a country and year
+    steps:
+      - intent: ask_sales_figures_for_country_year
+      - action: action_sales_figures_for_country_year
+
+  - story: user asks sales figures for a country and month
+    steps:
+      - intent: ask_sales_figures_for_country_month
+      - action: action_sales_figures_for_country_month
+
+  - story: Sales ranking by country for current year
+    steps:
+      - intent: request_sales_ranking
+        entities:
+          - country_name: "USA"
+      - action: action_sales_ranking_by_country_current_year
+
+  - story: Most popular plan by sales
+    steps:
+      - intent: request_most_popular_plan
+      - action: action_most_popular_plan_by_sales
+
+  - story: Lowest sales plan
+    steps:
+      - intent: request_lowest_sales_plan
+      - action: action_lowest_sales_plan
+
+  - story: Compare plan sales
+    steps:
+      - intent: request_compare_plan_sales
+        entities:
+          - plan1: "Plan A"
+          - plan2: "Plan B"
+      - action: action_compare_plan_sales
+
+  - story: Total sales for a region last year
+    steps:
+      - intent: request_total_sales_for_region
+        entities:
+          - region_name: "North America"
+      - action: action_total_sales_for_region_last_year
+
+  - story: Sales data for a region last quarter
+    steps:
+      - intent: request_sales_data_for_region_last_quarter
+        entities:
+          - region_name: "North America"
+      - action: action_sales_data_for_region_last_quarter
+  - story: Region with highest sales increase
+    steps:
+      - intent: request_highest_sales_increase
+      - action: action_region_with_highest_sales_increase
+      - intent: inform
+
+  - story: Sales on a specific date
+    steps:
+      - intent: request_sales_on_specific_date
+        entities:
+          - specific_date: "2024-07-15"
+      - action: action_sales_on_specific_date
+      - intent: inform
+
+  - story: Sales performance for a month and year
+    steps:
+      - intent: request_sales_performance_for_month_year
+        entities:
+          - month: 8
+          - year: 2024
+      - action: action_sales_performance_for_month_year
+      - intent: inform
+
+  - story: Compare current and last year sales
+    steps:
+      - intent: request_compare_current_and_last_year_sales
+        entities:
+          - current_year: 2024
+          - last_year: 2023
+      - action: action_compare_current_and_last_year_sales
+      - intent: inform
+
+  - story: Trend of sales
+    steps:
+      - intent: request_sales_trend
+      - action: action_trend_of_sales
+      - intent: inform
+
+  - story: Month-over-month comparison
+    steps:
+      - intent: request_month_over_month_comparison
+        entities:
+          - month1: 7
+          - month2: 6
+      - action: action_month_over_month_comparison
+      - intent: inform
+
+  - story: Sales data for first quarter
+    steps:
+      - intent: request_sales_data_for_first_quarter
+      - action: action_sales_data_for_first_quarter
+
+  - story: Top 5 countries by sales
+    steps:
+      - intent: request_top_5_countries_by_sales
+      - action: action_top_5_countries_by_sales
+
+  - story: Sales difference between countries
+    steps:
+      - intent: request_sales_difference_between_countries
+      - action: action_sales_difference_between_countries
+
+  - story: Weekly sales in month and year
+    steps:
+      - intent: request_weekly_sales_in_month_year
+      - action: action_weekly_sales_in_month_year
+
+  - story: Sales data for last 6 months
+    steps:
+      - intent: request_sales_data_last_6_months
+      - action: action_sales_data_last_6_months
+
+  - story: Total sales for last 12 months
+    steps:
+      - intent: request_total_sales_last_12_months
+      - action: action_total_sales_last_12_months
+
+  - story: Highest single sale last year
+    steps:
+      - intent: request_highest_single_sale_last_year
+      - action: action_highest_single_sale_last_year
+
+  - story: Lowest performing plan last quarter
+    steps:
+      - intent: request_lowest_performing_plan_last_quarter
+      - action: action_lowest_performing_plan_last_quarter
+
+  - story: Lowest sales region this year
+    steps:
+      - intent: request_lowest_sales_region_this_year
+      - action: action_lowest_sales_region_this_year
+
+  - story: Sales during holiday season
+    steps:
+      - intent: request_sales_during_holiday_season
+      - action: action_sales_during_holiday_season
+
+  - story: Sales comparison between summer and winter
+    steps:
+      - intent: request_sales_comparison_summer_winter
+      - action: action_sales_comparison_summer_winter
+
+  - story: Sales trend for a season
+    steps:
+      - intent: request_sales_trend_for_season
+      - action: action_sales_trend_for_season
+      
+  - story: Average sales per transaction
+    steps:
+      - intent: request_average_sales_per_transaction
+      - action: action_average_sales_per_transaction
+
+  - story: Sales growth percentage
+    steps:
+      - intent: request_sales_growth_percentage
+      - action: action_sales_growth_percentage
+
+  - story: Average sales per plan
+    steps:
+      - intent: request_average_sales_per_plan
+      - action: action_average_sales_per_plan
+
+  - story: Long-term sales trends
+    steps:
+      - intent: request_long_term_sales_trends
+      - action: action_long_term_sales_trends
+
+  - story: Sales trend change
+    steps:
+      - intent: request_sales_trend_change
+      - action: action_sales_trend_change
+
+  - story: Seasonal sales trend
+    steps:
+      - intent: request_seasonal_sales_trend
+      - action: action_seasonal_sales_trend
+
+  - story: Sales for product in month/year
+    steps:
+      - intent: request_sales_for_product_month_year
+      - action: action_sales_for_product_month_year
+
+  - story: Sales summary for plan last 6 months
+    steps:
+      - intent: request_sales_summary_for_plan_last_6_months
+      - action: action_sales_summary_for_plan_last_6_months
+
+  - story: User requests monthly sales variation last year
+    steps:
+      - intent: request_monthly_sales_variation_last_year
+      - action: action_monthly_sales_variation_last_year
+     
+
+  - story: User requests correlation with marketing spend
+    steps:
+      - intent: request_correlation_with_marketing_spend
+      - action: action_correlation_with_marketing_spend
+      
+  - story: User requests key drivers of sales
+    steps:
+      - intent: request_key_drivers_of_sales
+      - action: action_key_drivers_of_sales
+      
+  - story: User requests sales percentage increase by month
+    steps:
+      - intent: request_sales_percentage_increase_by_month
+      - action: action_sales_percentage_increase_by_month
+      
+
+  - story: User requests sales percentage increase by year
+    steps:
+      - intent: request_sales_percentage_increase_by_year
+      - action: action_sales_percentage_increase_by_year
+      
+
+  - story: User requests total number of plans
+    steps:
+      - intent: request_total_number_of_plans
+      - action: action_total_number_of_plans
+      
+
+  - story: User requests names of all plans
+    steps:
+      - intent: request_names_of_all_plans
+      - action: action_names_of_all_plans
+      
+
+  - story: User requests names of all countries
+    steps:
+      - intent: request_names_of_all_countries
+      - action: action_names_of_all_countries
+      
+  - story: User requests total sales by city
+    steps:
+      - intent: request_total_sales_by_city
+      - action: action_total_sales_by_city
+     
+  - story: User requests current month sales vs previous month
+    steps:
+      - intent: request_current_month_sales_vs_previous_month
+      - action: action_current_month_sales_vs_previous_month
+      
+
+  - story: Most common source of sales
+    steps:
+      - intent: request_most_common_source
+      - action: action_most_common_source
+
+  - story: Sales statistics by source
+    steps:
+      - intent: request_sales_statistics_by_source
+      - action: action_sales_statistics_by_source
+
+  - story: Highest revenue source
+    steps:
+      - intent: request_highest_revenue_source
+      - action: action_highest_revenue_source
+
+  - story: Sales trend by source
+    steps:
+      - intent: request_sales_trend_by_source
+      - action: action_sales_trend_by_source
+
+
+  - story: Lowest sales figures source
+    steps:
+      - intent: request_lowest_sales_figures_source
+      - action: action_lowest_sales_figures_source
+
+  - story: Customer acquisition by source
+    steps:
+      - intent: request_customer_acquisition_by_source
+      - action: action_customer_acquisition_by_source
+
+  - story: Percentage of total sales by source
+    steps:
+      - intent: request_percentage_of_total_sales_by_source
+      - action: action_percentage_of_total_sales_by_source
+
+
+  - story: Most frequent payment gateway
+    steps:
+      - intent: request_most_frequent_payment_gateway
+      - action: action_most_frequent_payment_gateway
+
+  - story: Sales breakdown by payment gateway
+    steps:
+      - intent: request_sales_breakdown_by_payment_gateway
+      - action: action_sales_breakdown_by_payment_gateway
+
+  - story: Highest transaction volume gateway
+    steps:
+      - intent: request_highest_transaction_volume_gateway
+      - action: action_highest_transaction_volume_gateway
+
+  - story: Sales trend by payment gateway
+    steps:
+      - intent: request_sales_trend_by_payment_gateway
+      - action: action_sales_trend_by_payment_gateway
+
+  - story: Success rate comparison between gateways
+    steps:
+      - intent: request_success_rate_comparison_between_gateways
+      - action: action_success_rate_comparison_between_gateways
+
+  - story: Lowest transaction fees gateway
+    steps:
+      - intent: request_lowest_transaction_fees_gateway
+      - action: action_lowest_transaction_fees_gateway
+
+  - story: Average transaction amount by gateway
+    steps:
+      - intent: request_average_transaction_amount_by_gateway
+      - action: action_average_transaction_amount_by_gateway
+
+  - story: Percentage of total sales by gateway
+    steps:
+      - intent: request_percentage_of_total_sales_by_gateway
+      - action: action_percentage_of_total_sales_by_gateway
+
+  - story: Top 10% sales gateways
+    steps:
+      - intent: request_top_10_percent_sales_gateways
+      - action: action_top_10_percent_sales_gateways
+
+  - story: Total Sales Revenue for this Year
+    steps:
+      - intent: request_total_sales_revenue_this_year
+      - action: action_total_sales_revenue_this_year
+
+  - story: Monthly Sales Revenue for this Year
+    steps:
+      - intent: request_monthly_sales_revenue_this_year
+      - action: action_monthly_sales_revenue_this_year
+
+  - story: Highest Sales Revenue Product
+    steps:
+      - intent: request_highest_sales_revenue_product
+      - action: action_highest_sales_revenue_product
+
+  - story: Quarterly Revenue Comparison
+    steps:
+      - intent: request_quarterly_revenue_comparison
+      - action: action_quarterly_revenue_comparison
+
+  - story: Total Sales Revenue by Region
+    steps:
+      - intent: request_total_sales_revenue_by_region
+      - action: action_total_sales_revenue_by_region
+
+  - story: Holiday Season Revenue
+    steps:
+      - intent: request_holiday_season_revenue
+      - action: action_holiday_season_revenue
+
+  - story: Sales Revenue Percentage Increase
+    steps:
+      - intent: request_sales_revenue_percentage_increase
+      - action: action_sales_revenue_percentage_increase
+
+  - story: User asks for total profit
+    steps:
+      - intent: request_total_profit
+      - action: action_total_profit
+
+  - story: User asks for profit margin per product
+    steps:
+      - intent: request_profit_margin_per_product
+      - action: action_profit_margin_per_product
+
+  - story: User asks for highest profit margin
+    steps:
+      - intent: request_highest_profit_margin
+      - action: action_highest_profit_margin
+
+  - story: User asks how profit has changed over the past year
+    steps:
+      - intent: request_profit_change_last_year
+      - action: action_profit_change_last_year
+
+  - story: User asks for average profit per transaction
+    steps:
+      - intent: request_average_profit_per_transaction
+      - action: action_average_profit_per_transaction
+
+  - story: User asks for profit by region
+    steps:
+      - intent: request_profit_by_region
+      - action: action_profit_by_region
+
+  - story: User asks for quarterly profit comparison
+    steps:
+      - intent: request_quarterly_profit_comparison
+      - action: action_quarterly_profit_comparison
+
+  - story: User asks for top products by profit
+    steps:
+      - intent: request_top_products_by_profit
+      - action: action_top_products_by_profit
+
+  - story: User asks for profit percentage of revenue
+    steps:
+      - intent: request_profit_percentage_of_revenue
+      - action: action_profit_percentage_of_revenue
+
+  - story: User asks for profit by source
+    steps:
+      - intent: request_profit_by_source
+      - action: action_profit_by_source

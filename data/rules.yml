@@ -1,0 +1,426 @@
+version: "3.1"
+
+rules:
+  - rule:  Greet user and start session
+    steps:
+      - intent: greet
+      - action: action_session_start
+
+  - rule: Respond to total sales request
+    steps:
+      - intent: ask_total_sales
+      - action: action_total_sales
+
+  - rule: Handle total sales request for last month
+    steps:
+      - intent: ask_total_sales_last_month
+      - action: action_total_sales_last_month
+
+  - rule: Handle total sales last quarter
+    steps:
+      - intent: ask_sales_last_quarter
+      - action: action_sales_last_quarter
+
+  - rule: Handle sales for specific month and year
+    steps:
+      - intent: ask_sales_for_specific_month_year
+      - action: action_sales_for_specific_month_year
+
+  - rule: Handle country with highest sales last quarter
+    steps:
+      - intent: ask_country_highest_sales_last_quarter
+      - action: action_country_highest_sales_last_quarter
+
+  - rule: Handle sales figures for country and year
+    steps:
+      - intent: ask_sales_figures_for_country_year
+      - action: action_sales_figures_for_country_year
+
+  - rule: Handle sales figures for country and month
+    steps:
+      - intent: ask_sales_figures_for_country_month
+      - action: action_sales_figures_for_country_month
+
+
+  - rule: Handle sales ranking request
+    steps:
+      - intent: request_sales_ranking
+      - action: action_sales_ranking_by_country_current_year
+
+  - rule: Handle most popular plan request
+    steps:
+      - intent: request_most_popular_plan
+      - action: action_most_popular_plan_by_sales
+
+  - rule: Handle lowest sales plan request
+    steps:
+      - intent: request_lowest_sales_plan
+      - action: action_lowest_sales_plan
+
+  - rule: Handle plan comparison request
+    steps:
+      - intent: request_compare_plan_sales
+      - action: action_compare_plan_sales
+
+  - rule: Handle total sales for region last year
+    steps:
+      - intent: request_total_sales_for_region
+      - action: action_total_sales_for_region_last_year
+
+  - rule: Handle sales data for region last quarter
+    steps:
+      - intent: request_sales_data_for_region_last_quarter
+      - action: action_sales_data_for_region_last_quarter
+
+  - rule: Handle request for sales data for region last quarter
+    steps:
+      - intent: request_sales_data_for_region_last_quarter
+      - action: action_sales_data_for_region_last_quarter
+
+  - rule: Handle request for the region with the highest sales increase
+    steps:
+      - intent: request_highest_sales_increase
+      - action: action_region_with_highest_sales_increase
+
+  - rule: Handle request for sales on a specific date
+    steps:
+      - intent: request_sales_on_specific_date
+      - action: action_sales_on_specific_date
+
+  - rule: Handle request for sales performance for a specific month and year
+    steps:
+      - intent: request_sales_performance_for_month_year
+      - action: action_sales_performance_for_month_year
+
+  - rule: Handle request to compare current and last year sales
+    steps:
+      - intent: request_compare_current_and_last_year_sales
+      - action: action_compare_current_and_last_year_sales
+
+  - rule: Handle request for the trend of sales
+    steps:
+      - intent: request_sales_trend
+      - action: action_trend_of_sales
+
+  - rule: Handle request for month-over-month comparison
+    steps:
+      - intent: request_month_over_month_comparison
+      - action: action_month_over_month_comparison
+
+  - rule: Provide sales data for the first quarter
+    steps:
+      - intent: request_sales_data_for_first_quarter
+      - action: action_sales_data_for_first_quarter
+
+  - rule: Provide top 5 countries by sales
+    steps:
+      - intent: request_top_5_countries_by_sales
+      - action: action_top_5_countries_by_sales
+
+  - rule: Provide sales difference between two countries
+    steps:
+      - intent: request_sales_difference_between_countries
+      - action: action_sales_difference_between_countries
+
+  - rule: Provide weekly sales in a specific month and year
+    steps:
+      - intent: request_weekly_sales_in_month_year
+      - action: action_weekly_sales_in_month_year
+
+  - rule: Provide sales data for the last 6 months
+    steps:
+      - intent: request_sales_data_last_6_months
+      - action: action_sales_data_last_6_months
+
+  - rule: Provide total sales for the last 12 months
+    steps:
+      - intent: request_total_sales_last_12_months
+      - action: action_total_sales_last_12_months
+      
+  - rule: Highest single sale last year
+    steps:
+      - intent: request_highest_single_sale_last_year
+      - action: action_highest_single_sale_last_year
+
+  - rule: Lowest performing plan last quarter
+    steps:
+      - intent: request_lowest_performing_plan_last_quarter
+      - action: action_lowest_performing_plan_last_quarter
+
+  - rule: Lowest sales region this year
+    steps:
+      - intent: request_lowest_sales_region_this_year
+      - action: action_lowest_sales_region_this_year
+
+  - rule: Sales during holiday season
+    steps:
+      - intent: request_sales_during_holiday_season
+      - action: action_sales_during_holiday_season
+
+  - rule: Sales comparison between summer and winter
+    steps:
+      - intent: request_sales_comparison_summer_winter
+      - action: action_sales_comparison_summer_winter
+
+  - rule: Sales trend for a season
+    steps:
+      - intent: request_sales_trend_for_season
+      - action: action_sales_trend_for_season
+
+  - rule: Provide average sales per transaction
+    steps:
+      - intent: request_average_sales_per_transaction
+      - action: action_average_sales_per_transaction
+
+  - rule: Provide sales growth percentage
+    steps:
+      - intent: request_sales_growth_percentage
+      - action: action_sales_growth_percentage
+
+  - rule: Provide average sales per plan
+    steps:
+      - intent: request_average_sales_per_plan
+      - action: action_average_sales_per_plan
+
+  - rule: Provide long-term sales trends
+    steps:
+      - intent: request_long_term_sales_trends
+      - action: action_long_term_sales_trends
+
+  - rule: Provide sales trend change
+    steps:
+      - intent: request_sales_trend_change
+      - action: action_sales_trend_change
+
+  - rule: Provide seasonal sales trend
+    steps:
+      - intent: request_seasonal_sales_trend
+      - action: action_seasonal_sales_trend
+
+  - rule: Provide sales for product in month/year
+    steps:
+      - intent: request_sales_for_product_month_year
+      - action: action_sales_for_product_month_year
+
+  - rule: Provide sales summary for plan last 6 months
+    steps:
+      - intent: request_sales_summary_for_plan_last_6_months
+      - action: action_sales_summary_for_plan_last_6_months
+
+  - rule: Request monthly sales variation last year
+    steps:
+      - intent: request_monthly_sales_variation_last_year
+      - action: action_monthly_sales_variation_last_year
+
+  - rule: Request correlation with marketing spend
+    steps:
+      - intent: request_correlation_with_marketing_spend
+      - action: action_correlation_with_marketing_spend
+
+  - rule: Request key drivers of sales
+    steps:
+      - intent: request_key_drivers_of_sales
+      - action: action_key_drivers_of_sales
+
+  - rule: Request sales percentage increase by month
+    steps:
+      - intent: request_sales_percentage_increase_by_month
+      - action: action_sales_percentage_increase_by_month
+
+  - rule: Request sales percentage increase by year
+    steps:
+      - intent: request_sales_percentage_increase_by_year
+      - action: action_sales_percentage_increase_by_year
+
+  - rule: Request total number of plans
+    steps:
+      - intent: request_total_number_of_plans
+      - action: action_total_number_of_plans
+
+  - rule: Request names of all plans
+    steps:
+      - intent: request_names_of_all_plans
+      - action: action_names_of_all_plans
+
+  - rule: Request names of all countries
+    steps:
+      - intent: request_names_of_all_countries
+      - action: action_names_of_all_countries
+
+  - rule: Request total sales by city
+    steps:
+      - intent: request_total_sales_by_city
+      - action: action_total_sales_by_city
+
+  - rule: Request current month sales vs previous month
+    steps:
+      - intent: request_current_month_sales_vs_previous_month
+      - action: action_current_month_sales_vs_previous_month
+
+  - rule: Handle most common source of sales
+    steps:
+      - intent: request_most_common_source
+      - action: action_most_common_source
+
+  - rule: Handle sales statistics by source
+    steps:
+      - intent: request_sales_statistics_by_source
+      - action: action_sales_statistics_by_source
+
+  - rule: Handle highest revenue source
+    steps:
+      - intent: request_highest_revenue_source
+      - action: action_highest_revenue_source
+
+  - rule: Handle sales trend by source
+    steps:
+      - intent: request_sales_trend_by_source
+      - action: action_sales_trend_by_source
+
+  - rule: Handle lowest sales figures source
+    steps:
+      - intent: request_lowest_sales_figures_source
+      - action: action_lowest_sales_figures_source
+
+  - rule: Handle customer acquisition by source
+    steps:
+      - intent: request_customer_acquisition_by_source
+      - action: action_customer_acquisition_by_source
+
+  - rule: Handle percentage of total sales by source
+    steps:
+      - intent: request_percentage_of_total_sales_by_source
+      - action: action_percentage_of_total_sales_by_source
+
+
+  - rule: Handle most frequent payment gateway request
+    steps:
+      - intent: request_most_frequent_payment_gateway
+      - action: action_most_frequent_payment_gateway
+
+  - rule: Handle sales breakdown by payment gateway request
+    steps:
+      - intent: request_sales_breakdown_by_payment_gateway
+      - action: action_sales_breakdown_by_payment_gateway
+
+  - rule: Handle highest transaction volume gateway request
+    steps:
+      - intent: request_highest_transaction_volume_gateway
+      - action: action_highest_transaction_volume_gateway
+
+  - rule: Handle sales trend by payment gateway request
+    steps:
+      - intent: request_sales_trend_by_payment_gateway
+      - action: action_sales_trend_by_payment_gateway
+
+  - rule: Handle success rate comparison between gateways request
+    steps:
+      - intent: request_success_rate_comparison_between_gateways
+      - action: action_success_rate_comparison_between_gateways
+
+  - rule: Handle lowest transaction fees gateway request
+    steps:
+      - intent: request_lowest_transaction_fees_gateway
+      - action: action_lowest_transaction_fees_gateway
+
+  - rule: Handle average transaction amount by gateway request
+    steps:
+      - intent: request_average_transaction_amount_by_gateway
+      - action: action_average_transaction_amount_by_gateway
+
+  - rule: Handle percentage of total sales by gateway request
+    steps:
+      - intent: request_percentage_of_total_sales_by_gateway
+      - action: action_percentage_of_total_sales_by_gateway
+
+  - rule: Handle top 10% sales gateways request
+    steps:
+      - intent: request_top_10_percent_sales_gateways
+      - action: action_top_10_percent_sales_gateways
+
+
+  - rule: Respond to total sales revenue for this year
+    steps:
+      - intent: request_total_sales_revenue_this_year
+      - action: action_total_sales_revenue_this_year
+
+  - rule: Respond to monthly sales revenue for this year
+    steps:
+      - intent: request_monthly_sales_revenue_this_year
+      - action: action_monthly_sales_revenue_this_year
+
+  - rule: Respond to highest sales revenue product
+    steps:
+      - intent: request_highest_sales_revenue_product
+      - action: action_highest_sales_revenue_product
+
+  - rule: Respond to quarterly revenue comparison
+    steps:
+      - intent: request_quarterly_revenue_comparison
+      - action: action_quarterly_revenue_comparison
+
+  - rule: Respond to total sales revenue by region
+    steps:
+      - intent: request_total_sales_revenue_by_region
+      - action: action_total_sales_revenue_by_region
+
+  - rule: Respond to holiday season revenue
+    steps:
+      - intent: request_holiday_season_revenue
+      - action: action_holiday_season_revenue
+
+  - rule: Respond to sales revenue percentage increase
+    steps:
+      - intent: request_sales_revenue_percentage_increase
+      - action: action_sales_revenue_percentage_increase
+
+
+  - rule: Request total profit
+    steps:
+      - intent: request_total_profit
+      - action: action_total_profit
+
+  - rule: Request profit margin per product
+    steps:
+      - intent: request_profit_margin_per_product
+      - action: action_profit_margin_per_product
+
+  - rule: Request highest profit margin
+    steps:
+      - intent: request_highest_profit_margin
+      - action: action_highest_profit_margin
+
+  - rule: Request profit change last year
+    steps:
+      - intent: request_profit_change_last_year
+      - action: action_profit_change_last_year
+
+  - rule: Request average profit per transaction
+    steps:
+      - intent: request_average_profit_per_transaction
+      - action: action_average_profit_per_transaction
+
+  - rule: Request profit by region
+    steps:
+      - intent: request_profit_by_region
+      - action: action_profit_by_region
+
+  - rule: Request quarterly profit comparison
+    steps:
+      - intent: request_quarterly_profit_comparison
+      - action: action_quarterly_profit_comparison
+
+  - rule: Request top products by profit
+    steps:
+      - intent: request_top_products_by_profit
+      - action: action_top_products_by_profit
+
+  - rule: Request profit percentage of revenue
+    steps:
+      - intent: request_profit_percentage_of_revenue
+      - action: action_profit_percentage_of_revenue
+
+  - rule: Request profit by source
+    steps:
+      - intent: request_profit_by_source
+      - action: action_profit_by_source

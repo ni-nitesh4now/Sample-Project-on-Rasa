@@ -1,0 +1,493 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_total_sales
+  - ask_total_sales_last_month
+  - ask_sales_last_quarter
+  - ask_sales_for_specific_month_year
+  - ask_country_highest_sales_last_quarter
+  - ask_sales_figures_for_country_year
+  - ask_sales_figures_for_country_month
+  - request_sales_ranking
+  - request_most_popular_plan
+  - request_lowest_sales_plan
+  - request_compare_plan_sales
+  - request_total_sales_for_region
+  - request_sales_data_for_region_last_quarter
+  - request_highest_sales_increase
+  - request_sales_on_specific_date
+  - request_sales_performance_for_month_year
+  - request_compare_current_and_last_year_sales
+  - request_sales_trend
+  - request_month_over_month_comparison
+  - request_sales_data_for_first_quarter
+  - request_top_5_countries_by_sales
+  - request_sales_difference_between_countries
+  - request_weekly_sales_in_month_year
+  - request_sales_data_last_6_months
+  - request_total_sales_last_12_months
+  - request_highest_single_sale_last_year
+  - request_lowest_performing_plan_last_quarter
+  - request_lowest_sales_region_this_year
+  - request_sales_during_holiday_season
+  - request_sales_comparison_summer_winter
+  - request_sales_trend_for_season
+  - request_average_sales_per_transaction
+  - request_sales_growth_percentage
+  - request_average_sales_per_plan
+  - request_long_term_sales_trends
+  - request_sales_trend_change
+  - request_seasonal_sales_trend
+  - request_sales_for_product_month_year
+  - request_sales_summary_for_plan_last_6_months
+  - request_monthly_sales_variation_last_year
+  - request_correlation_with_marketing_spend
+  - request_key_drivers_of_sales
+  - request_sales_percentage_increase_by_month
+  - request_sales_percentage_increase_by_year
+  - request_total_number_of_plans
+  - request_names_of_all_plans
+  - request_names_of_all_countries
+  - request_total_sales_by_city
+  - request_current_month_sales_vs_previous_month
+  - request_most_common_source
+  - request_sales_statistics_by_source
+  - request_highest_revenue_source
+  - request_sales_trend_by_source
+  - request_lowest_sales_figures_source
+  - request_customer_acquisition_by_source
+  - request_percentage_of_total_sales_by_source
+  - request_most_frequent_payment_gateway
+  - request_sales_breakdown_by_payment_gateway
+  - request_highest_transaction_volume_gateway
+  - request_sales_trend_by_payment_gateway
+  - request_success_rate_comparison_between_gateways
+  - request_lowest_transaction_fees_gateway
+  - request_average_transaction_amount_by_gateway
+  - request_percentage_of_total_sales_by_gateway
+  - request_top_10_percent_sales_gateways
+  - request_total_sales_revenue_this_year
+  - request_monthly_sales_revenue_this_year
+  - request_highest_sales_revenue_product
+  - request_quarterly_revenue_comparison
+  - request_total_sales_revenue_by_region
+  - request_holiday_season_revenue
+  - request_sales_revenue_percentage_increase
+  - request_total_profit
+  - request_profit_margin_per_product
+  - request_highest_profit_margin
+  - request_profit_change_last_year
+  - request_average_profit_per_transaction
+  - request_profit_by_region
+  - request_quarterly_profit_comparison
+  - request_top_products_by_profit
+  - request_profit_percentage_of_revenue
+  - request_profit_by_source
+  - request_trend_of_sales
+  - action_session_start
+responses:
+  utter_total_sales:
+    - text: "Let me calculate the total sales for you."
+  utter_greet:
+    - text: "Hello! How can I help you today?"
+
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+  
+  utter_greeting:
+    - text: "{greeting}"
+    
+  utter_ask_total_sales_last_month:
+    - text: "The total sales for last month is {sales_last_month}."
+  utter_ask_sales_last_quarter:
+    - text: "The total sales for the last quarter is {sales_last_quarter}."
+
+  utter_ask_sales_for_specific_month_year:
+    - text: "The total sales for {month}/{year} is {sales_specific_month_year}."
+
+  utter_ask_country_highest_sales_last_quarter:
+    - text: "The country with the highest sales in the last quarter is {highest_sales_country} with {highest_sales_amount}."
+
+  utter_ask_sales_figures_for_country_year:
+    - text: "The total sales for {country} in {year} is {sales_for_country_year}."
+
+  utter_ask_sales_figures_for_country_month:
+    - text: "The total sales for {country} in {month}/{year} is {sales_for_country_month}."
+  utter_sales_ranking:
+    - text: "Here is the sales ranking for {country_name} for the current year."
+  utter_most_popular_plan:
+    - text: "The most popular plan by sales this year is {most_popular_plan}."
+  utter_lowest_sales_plan:
+    - text: "The plan with the lowest sales this year is {lowest_sales_plan}."
+  utter_compare_plan_sales:
+    - text: "Comparing {plan1} and {plan2}, {comparison_result}."
+  utter_total_sales_for_region:
+    - text: "The total sales for {region_name} last year were ${total_sales:.2f}."
+  utter_sales_data_for_region_last_quarter:
+    - text: "The sales data for {region_name} in the last quarter shows a total of ${total_sales:.2f}."
+  utter_highest_sales_increase:
+    - text: "The region with the highest sales increase is {region_name}."
+  utter_sales_on_specific_date:
+    - text: "Total sales on {specific_date} were ${total_sales:.2f}."
+  utter_sales_performance_for_month_year:
+    - text: "Sales performance for {month}/{year} shows a total of ${total_sales:.2f}."
+  utter_compare_current_and_last_year_sales:
+    - text: "Comparing sales between {current_year} and {last_year}, the difference is ${sales_difference:.2f}."
+  utter_trend_of_sales:
+    - text: "The sales trend shows {trend_result}."
+  utter_month_over_month_comparison:
+    - text: "Month-over-month comparison shows that {month1} had {comparison_result} compared to {month2}."
+
+  utter_sales_data_for_first_quarter:
+    - text: "The sales data for the first quarter includes January, February, and March. I will fetch the details for you."
+  
+  utter_top_5_countries_by_sales:
+    - text: "I will provide you with the top 5 countries by sales."
+
+  utter_sales_difference_between_countries:
+    - text: "I will calculate and show the sales difference between the specified countries."
+
+  utter_weekly_sales_in_month_year:
+    - text: "I will retrieve the weekly sales data for the specified month and year."
+
+  utter_sales_data_last_6_months:
+    - text: "I will provide you with the sales data for the last 6 months."
+
+  utter_total_sales_last_12_months:
+    - text: "I will provide you with the total sales for the last 12 months."
+  utter_ask_season:
+    - text: "Please specify the season (summer, winter, spring, autumn) for the sales trend."
+
+  utter_highest_single_sale_last_year:
+    - text: "I will retrieve the highest single sale from last year."
+
+  utter_lowest_performing_plan_last_quarter:
+    - text: "I will find the lowest performing plan from the last quarter."
+
+  utter_lowest_sales_region_this_year:
+    - text: "I will identify the region with the lowest sales this year."
+
+  utter_sales_during_holiday_season:
+    - text: "I will provide sales data for the holiday season."
+
+  utter_sales_comparison_summer_winter:
+    - text: "I will compare sales data between the summer and winter seasons."
+
+  utter_sales_trend_for_season:
+    - text: "I will analyze and provide the sales trend for the specified season."
+  utter_request_average_sales_per_transaction:
+    - text: "I will calculate the average sales per transaction."
+
+  utter_request_sales_growth_percentage:
+    - text: "Let me find out the sales growth percentage for you."
+
+  utter_request_average_sales_per_plan:
+    - text: "I will find the average sales per plan for you."
+
+  utter_request_long_term_sales_trends:
+    - text: "I'll provide you with the long-term sales trends."
+
+  utter_request_sales_trend_change:
+    - text: "I will check the change in sales trends over the years."
+
+  utter_request_seasonal_sales_trend:
+    - text: "Please specify the season you are interested in for sales trend analysis."
+
+  utter_request_sales_for_product_month_year:
+    - text: "Please provide the product, month, and year to get the sales data."
+
+  utter_request_sales_summary_for_plan_last_6_months:
+    - text: "I will get the sales summary for the specified plan over the last 6 months."
+  utter_request_monthly_sales_variation_last_year:
+    - text: "Please provide the year to get the monthly sales variation."
+
+  utter_request_correlation_with_marketing_spend:
+    - text: "I will find the correlation between sales and marketing spend for you."
+
+  utter_request_key_drivers_of_sales:
+    - text: "I will get the key drivers of sales."
+
+  utter_request_sales_percentage_increase_by_month:
+    - text: "Please provide the year to get the sales percentage increase by month."
+
+  utter_request_sales_percentage_increase_by_year:
+    - text: "Please provide the year to get the sales percentage increase compared to the previous year."
+
+  utter_request_total_number_of_plans:
+    - text: "I will get the total number of unique plans available."
+
+  utter_request_names_of_all_plans:
+    - text: "I will list all the names of available plans."
+
+  utter_request_names_of_all_countries:
+    - text: "I will list all the names of countries available."
+
+  utter_request_total_sales_by_city:
+    - text: "Please provide the name of the city to get the total sales."
+
+  utter_request_current_month_sales_vs_previous_month:
+    - text: "Please provide the month and year to compare the current month's sales with the previous month."
+
+  utter_most_common_source:
+    - text: "The most common source of sales is {source}."
+  utter_sales_statistics_by_source:
+    - text: "Sales statistics by source:\n{sales_stats}"
+  utter_highest_revenue_source:
+    - text: "The source that has generated the highest revenue is {source}."
+  utter_sales_trend_by_source:
+    - text: "Trend of sales by source over the past year:\n{trend}"
+  utter_lowest_sales_figures_source:
+    - text: "The source with the lowest sales figures is {source}."
+  utter_customer_acquisition_by_source:
+    - text: "Customer acquisition by source:\n{acquisition}"
+  utter_percentage_of_total_sales_by_source:
+    - text: "Percentage of total sales by source:\n{percentage}"
+  utter_most_frequent_payment_gateway:
+    - text: "The payment gateway used most frequently is {payment_gateway}."
+  utter_sales_breakdown_by_payment_gateway:
+    - text: "Breakdown of sales by payment gateway:\n{sales_breakdown}"
+  utter_highest_transaction_volume_gateway:
+    - text: "The payment gateway with the highest transaction volume is {payment_gateway}."
+  utter_sales_trend_by_payment_gateway:
+    - text: "Trend of sales through different payment gateways:\n{trend}"
+  utter_success_rate_comparison_between_gateways:
+    - text: "Success rate of transactions by payment gateway:\n{success_rate}"
+  utter_lowest_transaction_fees_gateway:
+    - text: "The payment gateway with the lowest transaction fees is {payment_gateway}."
+  utter_average_transaction_amount_by_gateway:
+    - text: "Average transaction amount for each payment gateway:\n{average_amount}"
+  utter_percentage_of_total_sales_by_gateway:
+    - text: "Percentage of total sales processed through each payment gateway:\n{percentage}"
+  utter_top_10_percent_sales_gateways:
+    - text: "The payment gateways that contributed to the top 10% of sales are: {top_gateways}."
+  utter_total_sales_revenue_this_year:
+    - text: "The total sales revenue for this year is ${total_revenue}."
+  utter_monthly_sales_revenue_this_year:
+    - text: "The sales revenue for each month of this year is as follows: {monthly_revenue}."
+  utter_highest_sales_revenue_product:
+    - text: "The product or service with the highest sales revenue is {highest_revenue_product}."
+  utter_quarterly_revenue_comparison:
+    - text: "The sales revenue for this quarter {change_direction} by ${change_amount} compared to the last quarter."
+  utter_total_sales_revenue_by_region:
+    - text: "The total sales revenue for each region or country is as follows: {revenue_by_region}."
+  utter_holiday_season_revenue:
+    - text: "The revenue generated from sales during the holiday season is ${holiday_revenue}."
+  utter_sales_revenue_percentage_increase:
+    - text: "The percentage increase in sales revenue compared to the previous year is {percentage_increase:.2f}%."
+  utter_total_profit:
+    - text: "The total profit made from sales is {total_profit}."
+  utter_profit_margin_per_product:
+    - text: "Profit margin for each product or service:\n{margins}"
+  utter_highest_profit_margin:
+    - text: "The product or service with the highest profit margin is {highest_margin_product} with a margin of {highest_margin_value}."
+  utter_profit_change_last_year:
+    - text: "The profit has {change_direction} over the past year by {profit_change}."
+  utter_average_profit_per_transaction:
+    - text: "The average profit per transaction is {average_profit}."
+  utter_profit_by_region:
+    - text: "Profit by region or country:\n{region_profit}"
+  utter_quarterly_profit_comparison:
+    - text: "The profit for the current quarter is {comparison} compared to the previous quarter by {difference}."
+  utter_top_products_by_profit:
+    - text: "Top five products or services by profit:\n{top_products}"
+  utter_profit_percentage_of_revenue:
+    - text: "The percentage of total revenue that is profit is {profit_percentage}."
+  utter_profit_by_source:
+    - text: "Profit breakdown by source:\n{source_profit}"
+  utter_default:
+    - text: "I'm sorry, I didn't understand that. Could you please clarify?"
+
+
+ 
+    
+actions:
+  - action_session_start
+  - action_total_sales
+  - action_total_sales_last_month
+  - action_sales_last_quarter
+  - action_sales_for_specific_month_year
+  - action_country_highest_sales_last_quarter
+  - action_sales_figures_for_country_year
+  - action_sales_figures_for_country_month
+  - action_sales_ranking_by_country_current_year
+  - action_most_popular_plan_by_sales
+  - action_lowest_sales_plan
+  - action_compare_plan_sales
+  - action_total_sales_for_region_last_year
+  - action_sales_data_for_region_last_quarter
+  - action_region_with_highest_sales_increase
+  - action_sales_on_specific_date
+  - action_sales_performance_for_month_year
+  - action_compare_current_and_last_year_sales
+  - action_trend_of_sales
+  - action_month_over_month_comparison
+  - action_sales_data_for_first_quarter
+  - action_top_5_countries_by_sales
+  - action_sales_difference_between_countries
+  - action_weekly_sales_in_month_year
+  - action_sales_data_last_6_months
+  - action_total_sales_last_12_months
+  - action_highest_single_sale_last_year
+  - action_lowest_performing_plan_last_quarter
+  - action_lowest_sales_region_this_year
+  - action_sales_during_holiday_season
+  - action_sales_comparison_summer_winter
+  - action_sales_trend_for_season
+  - action_average_sales_per_transaction
+  - action_sales_growth_percentage
+  - action_average_sales_per_plan
+  - action_long_term_sales_trends
+  - action_sales_trend_change
+  - action_seasonal_sales_trend
+  - action_sales_for_product_month_year
+  - action_sales_summary_for_plan_last_6_months
+  - action_monthly_sales_variation_last_year
+  - action_correlation_with_marketing_spend
+  - action_key_drivers_of_sales
+  - action_sales_percentage_increase_by_month
+  - action_sales_percentage_increase_by_year
+  - action_total_number_of_plans
+  - action_names_of_all_plans
+  - action_names_of_all_countries
+  - action_total_sales_by_city
+  - action_current_month_sales_vs_previous_month
+  - action_most_common_source
+  - action_sales_statistics_by_source
+  - action_highest_revenue_source
+  - action_sales_trend_by_source
+  - action_lowest_sales_figures_source
+  - action_customer_acquisition_by_source
+  - action_percentage_of_total_sales_by_source
+  - action_most_frequent_payment_gateway
+  - action_sales_breakdown_by_payment_gateway
+  - action_highest_transaction_volume_gateway
+  - action_sales_trend_by_payment_gateway
+  - action_success_rate_comparison_between_gateways
+  - action_lowest_transaction_fees_gateway
+  - action_average_transaction_amount_by_gateway
+  - action_percentage_of_total_sales_by_gateway
+  - action_top_10_percent_sales_gateways
+  - action_total_sales_revenue_this_year
+  - action_monthly_sales_revenue_this_year
+  - action_highest_sales_revenue_product
+  - action_quarterly_revenue_comparison
+  - action_total_sales_revenue_by_region
+  - action_holiday_season_revenue
+  - action_sales_revenue_percentage_increase
+  - action_total_profit
+  - action_profit_margin_per_product
+  - action_highest_profit_margin
+  - action_profit_change_last_year
+  - action_average_profit_per_transaction
+  - action_profit_by_region
+  - action_quarterly_profit_comparison
+  - action_top_products_by_profit
+  - action_profit_percentage_of_revenue
+  - action_profit_by_source
+  
+  
+entities:
+  - country_name
+  - month
+  - year
+  - plan
+  - plan1
+  - plan2
+  - region_name
+  - specific_date
+  - season
+  - city
+  - source
+  - payment_gateway
+  - quarter
+
+  
+slots:
+  sales_last_month:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: sales
+  greeting:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: greet
+  month:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: month
+
+  year:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: year
+  country_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: country
+  plan1:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: plan
+  plan2:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: plan
+  region_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: region
+  specific_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+  country1:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: country
+  country2:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: country
+  season:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: season
+  plan:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: plan
+  city:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: city
+  payment_gateway:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: payment_gateway
+  quarter:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: quarter
+    
+  
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
