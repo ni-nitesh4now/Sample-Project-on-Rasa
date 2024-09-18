@@ -1,0 +1,13 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohPbUkPjc/ryQjPiW/NCkntbY2FgAysSAN": "action_get_month_double",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohPbUkPjc/ryQjPiW/NCkntZY44zC0EWFwLABOBUJ5": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohPbUkviS/JDEnvjgxJ7W4tjYWABLYH6g=": "action_get_total_sales",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohPbUkviS/JDEnvjgxJ7W4ljjT0HURNjYWAIcjQUo=": "action_listen",
+    "eJwtytEJgDAMRdFVMoATdBWRUOpDAjZKmvpTursB/bsH7jrmQuM2PJyLy6WJxhesuSLRj1OaQ+PtDRaPaNATHXAu3SzALhW8Z8ec2wvY7SIb": "action_get_current_time_date",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohPbUkPrm0qAjIiS/JzE2NT0ksSa0lzkzseom1IhYAdDFIow==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BCidkhKfV5qblFpUXFsbCwCWAh3y": "action_multiply_numbers",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BCidkhKfV5qblFpUXEucSbmlOSWZBTmVcG34zYwFAMFZPn8=": "action_listen"
+  }
+}

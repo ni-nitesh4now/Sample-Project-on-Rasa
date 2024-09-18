@@ -6,12 +6,13 @@ stories:
   - intent: add_numbers
   - action: action_multiply_numbers
 
-- story: Get double of month
-  steps:
-  - intent: get_month_double
-  - action: action_get_month_double
   
 - story: Get current date and time
   steps:
   - intent: get_current_time_date
   - action: action_get_current_time_date
+
+- story: Get total sales story
+  steps:
+  - intent: get_total_sales
+  - action: action_get_total_sales

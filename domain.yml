@@ -2,23 +2,28 @@ version: "3.1"
 
 intents:
   - add_numbers
-  - get_month_double
+  # - get_month_double
   - get_current_time_date
+  - get_total_sales
+
 
 
 responses:
   utter_multiply_result:
     - text: "The result of multiplying {num1} and {num2} is {result}."
-  utter_month_double:
-    - text: "The double of {month} is {result}."
+
   utter_current_time_date:
     - text: "Today is {day}-{month}-{year}, time is {time}."
 
+  utter_total_sales:
+    - text: "The total sales for {year} is {total_sales}."
+    - text: "Overall sales for {years} is {total_sales}."
 
 actions:
   - action_multiply_numbers
-  - action_get_month_double
+  # - action_get_month_double
   - action_get_current_time_date
+  - action_get_total_sales
 
-entities:
-  - month
+# entities:
+#   - month

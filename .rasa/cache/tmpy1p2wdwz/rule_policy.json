@@ -1,0 +1,20 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"get_total_sales\"}}]": "action_get_total_sales",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"get_total_sales\"}}, {\"prev_action\": {\"action_name\": \"action_get_total_sales\"}, \"user\": {\"intent\": \"get_total_sales\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"add_numbers\"}}]": "action_multiply_numbers",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"add_numbers\"}}, {\"prev_action\": {\"action_name\": \"action_multiply_numbers\"}, \"user\": {\"intent\": \"add_numbers\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"get_current_time_date\"}}]": "action_get_current_time_date",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"get_current_time_date\"}}, {\"prev_action\": {\"action_name\": \"action_get_current_time_date\"}, \"user\": {\"intent\": \"get_current_time_date\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "predicting default action with intent back",
+      "predicting default action with intent session_start",
+      "predicting default action with intent restart"
+    ]
+  }
+}

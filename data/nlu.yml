@@ -7,21 +7,7 @@ nlu:
     - Please add 5 and 7
     - Can you add 10 and 20?
     - I want to add 4 and 6
-    
-- intent: get_month_double
-  examples: |
-    - January
-    - February
-    - March
-    - April
-    - May
-    - June
-    - July
-    - August
-    - September
-    - October
-    - November
-    - December
+   
 
 - intent: get_current_time_date
   examples: |
@@ -30,3 +16,15 @@ nlu:
     - What day is it today?
     - Give me the current date and time.
     - Tell me the date and time right now.
+    
+- intent: get_total_sales
+  examples: |
+    - What was the total sale of 2023?
+    - How much did we sell in 2023?
+    - Can you tell me the total sales for 2024?
+    - What are the sales figures for 2023 and 2024?
+    - How much was sold in 2022?
+    - Give me the total sales of 2023,2024 overall.
+    - What were the total sales in January 2023?
+    - How much did we sell last year?
+    - I want to know the total sales for this year.
