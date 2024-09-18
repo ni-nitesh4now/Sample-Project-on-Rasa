@@ -5,6 +5,7 @@ intents:
   # - get_month_double
   - get_current_time_date
   - get_total_sales
+  - get_country_sales
 
 
 
@@ -18,12 +19,19 @@ responses:
   utter_total_sales:
     - text: "The total sales for {year} is {total_sales}."
     - text: "Overall sales for {years} is {total_sales}."
+  utter_max_sales:
+    - text: "The maximum sales in {country} is {max_sales:.2f}."
+  utter_avg_sales:
+    - text: "The average sales in {month} {year} in {country} is {avg_sales:.2f}."
 
 actions:
   - action_multiply_numbers
   # - action_get_month_double
   - action_get_current_time_date
   - action_get_total_sales
+  - action_get_country_sales
 
-# entities:
-#   - month
+
+
+entities:
+  - country

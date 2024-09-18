@@ -28,3 +28,12 @@ nlu:
     - What were the total sales in January 2023?
     - How much did we sell last year?
     - I want to know the total sales for this year.
+
+- intent: get_country_sales
+  examples: |
+    - What are the max sales in [Canada](country)?
+    - Give me the average sales in March of 2023 in [Germany](country).
+    - How much did we sell last six months in [India](country)?
+    - What was the total sales in [Australia](country) last year?
+    - Max sales in [Mexico](country)?
+    - Average sales in [France](country) for January 2022?

@@ -16,3 +16,8 @@ stories:
   steps:
   - intent: get_total_sales
   - action: action_get_total_sales
+
+- story: Get country sales
+  steps:
+  - intent: get_country_sales
+  - action: action_get_country_sales

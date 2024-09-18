@@ -16,3 +16,8 @@ rules:
   steps:
   - intent: get_total_sales
   - action: action_get_total_sales
+  
+- rule: Get country sales rule
+  steps:
+  - intent: get_country_sales
+  - action: action_get_country_sales

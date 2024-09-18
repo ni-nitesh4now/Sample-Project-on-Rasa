@@ -218,3 +218,80 @@ class ActionGetTotalSales(Action):
             return []
 
         return []
+    
+
+valid_countries = [
+    'united states', 'canada', 'mexico', 'germany', 'france', 
+    'uk', 'japan', 'south korea', 'australia', 'india',
+]
+
+def extract_country(text):
+    pattern = r'\b(' + '|'.join(map(re.escape, valid_countries)) + r')\b'
+    
+    match = re.search(pattern, text, re.IGNORECASE)
+    if match:
+        return match.group(0).lower()  
+    return None
+
+class ActionGetCountrySales(Action):
+
+    def name(self) -> Text:
+        return "action_get_country_sales"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        try:
+            logging.info("Loading sales data from Excel file...")
+            df = pd.read_excel('airhub_data.xlsx')
+            logging.info("Sales data loaded successfully.")
+        except FileNotFoundError:
+            dispatcher.utter_message(text="The sales data file could not be found.")
+            return []
+        except Exception as e:
+            dispatcher.utter_message(text=f"An error occurred while loading the sales data: {str(e)}")
+            return []
+
+        df['PurchaseDate'] = pd.to_datetime(df['PurchaseDate'], errors='coerce')
+        df['SellingPrice'] = pd.to_numeric(df['SellingPrice'], errors='coerce')
+
+        if df.empty or df['SellingPrice'].isnull().all():
+            dispatcher.utter_message(text="The sales data is empty or invalid.")
+            return []
+
+        user_message = tracker.latest_message.get('text')
+
+        # Extract country from user input
+        country_name = extract_country(user_message)
+
+        if not country_name:
+            dispatcher.utter_message(text="I couldn't find a valid country in your request.")
+            return []
+
+        # Check for specific queries like max or avg sales
+        if "max sales" in user_message.lower():
+            max_sales = df[df['countryname'].str.lower() == country_name]['SellingPrice'].max()
+            dispatcher.utter_message(text=f"The maximum sales in {country_name.capitalize()} is {max_sales:.2f}.")
+        
+        elif "avg sales" in user_message.lower():
+            month_year_pattern = r'\b(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\s*(?:of\s*)?(\d{4})\b'
+            match = re.search(month_year_pattern, user_message, re.IGNORECASE)
+            
+            if match:
+                month_str = match.group(0).strip().split()[0].lower()
+                year = int(match.group(1))
+                month = months.get(month_str)
+                
+                avg_sales = df[(df['PurchaseDate'].dt.month == month) & 
+                               (df['PurchaseDate'].dt.year == year) & 
+                               (df['countryname'].str.lower() == country_name)]['SellingPrice'].mean()
+                
+                dispatcher.utter_message(text=f"The average sales in {month_str.capitalize()} {year} in {country_name.capitalize()} is {avg_sales:.2f}.")
+            else:
+                dispatcher.utter_message(text="Please specify a month and year for average sales.")
+        
+        else:
+            dispatcher.utter_message(text="I couldn't understand your request regarding sales.")
+
+        return []
