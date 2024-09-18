@@ -31,14 +31,17 @@ new setup?{
     pip install spacy
     python -m spacy download en_core_web_md
 }
+
+rasa init   #optional
 rasa run actions
 
 
 t2:
+
 rasa train
 error{
     pip install "SQLAlchemy<2.0"
-
+    python -m spacy download en_core_web_md
     rasa train --config config.yml --domain domain.yml --data nlu.yml stories.yml rules.yml
 }
 

@@ -1,0 +1,5 @@
+source env/bin/activate
+rasa run actions
+
+source env/bin/activate
+rasa shell
