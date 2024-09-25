@@ -1,18 +1,27 @@
+
 version: "3.1"
 
 intents:
-  - add_numbers
-  # - get_month_double
   - get_current_time_date
   - get_total_sales
   - get_country_sales
+  - get_total_revenue
+  - get_country_list
+  - get_plan_names
+  - get_top_countries_and_plans
+  - get_sales_growth
+  - get_lowest_countries
+  - get_lowest_plans
+  - get_top_regions
+  - get_regions
+  - get_sales_by_source
+  - get_plan_names_by_country
+  - get_sales_by_payment_gateway
+  - get_sales_by_country_and_plan
 
 
 
 responses:
-  utter_multiply_result:
-    - text: "The result of multiplying {num1} and {num2} is {result}."
-
   utter_current_time_date:
     - text: "Today is {day}-{month}-{year}, time is {time}."
 
@@ -23,15 +32,60 @@ responses:
     - text: "The maximum sales in {country} is {max_sales:.2f}."
   utter_avg_sales:
     - text: "The average sales in {month} {year} in {country} is {avg_sales:.2f}."
+  utter_exceeding_sales:
+    - text: "The total sales in {country} exceeding ${total_revenue:.2f} is ${exceeding_sales:.2f}."
+  utter_country_list:
+    - text: "There are a total of {total_countries} countries: {countries_list}."
+  utter_plan_info:
+    - text: "There are a total of {total_plans} plans: {plans_list}."
+  utter_top_countries_and_plans:
+    - text: "Here are the top countries and plans based on your request."
+  utter_sales_growth:
+    - text: "Here are the sales growth percentages based on your request."
+  utter_lowest_countries:
+    - text: "Here are the lowest countries based on your request."
+  utter_lowest_plans:
+    - text: "Here are the lowest plans based on your request."
+  utter_top_regions:
+    - text: "Here are the top regions based on your request."
+  utter_regions:
+    - text: "Here are the available regions based on your request."
+  utter_sales_by_source:
+    - text: "Here are the aggregate sales based on your request."
+  utter_plan_names_by_country:
+    - text: "Here are the available plans based on your request."
+  utter_sales_by_payment_gateway:
+    - text: "Here are the available sales grouped by payment gateway."
+
+  utter_sales_by_country_and_plan:
+    - text: "Here are the available sales grouped by country and plan."
+
+
+
+
+
+
+
+
 
 actions:
-  - action_multiply_numbers
-  # - action_get_month_double
   - action_get_current_time_date
   - action_get_total_sales
   - action_get_country_sales
-
-
+  - action_get_total_revenue
+  - action_get_countries
+  - action_get_plan_names
+  - action_get_top_countries_and_plans
+  - action_get_sales_growth
+  - action_get_lowest_countries
+  - action_get_lowest_plans
+  - action_get_top_regions
+  - action_get_regions
+  - action_get_sales_by_source
+  - action_get_plan_names_by_country
+  - action_get_sales_by_payment_gateway
+  - action_get_sales_by_country_and_plan
 
 entities:
   - country
+  
