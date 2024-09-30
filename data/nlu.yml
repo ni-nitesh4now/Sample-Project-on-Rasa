@@ -1,114 +1,36 @@
-version: "3.1"
-
+version: "3.0"
 nlu:
-   
+  - intent: request_sales_data
+    examples: |
+      - [21st October 2023](date)
+      - [21st Nov 2023](date)
+      - [21st november 2023](date)
+      - [11st May 2021](date)
+      - [21/10/2021](date)
+      - [2/1/2024](date)
+      - [1/05/2011](date)
+      - [last 3](number) months sales data
+      - [last 8](number) month sales data
+      - [last 12](number) month total sales data
+      - sales of [September](month) [2023](year)
+      - sales of [oct](month) [2021](year)
+      - sales of [jan](month) [2024](year)
+      - show me sales for [January](month) [2022](year)
+      - show me sales for [Nov](month) [2021](year)
+      - total sales for [last two](number) months
+      - retrieve data for [December](month) [2020](year)
+      - sales of [September](month), [October](month), [Nov](month)
+      - Total sales
+      - Overall sales of the company
+      - Sum of sales till now
 
-- intent: get_current_time_date
-  examples: |
-    - What is the current date and time?
-    - Can you tell me today's date and time?
-    - What day is it today?
-    - Give me the current date and time.
-    - Tell me the date and time right now.
-    
-- intent: get_total_sales
-  examples: |
-    - What was the total sale of 2023?
-    - How much did we sell in 2023?
-    - Can you tell me the total sales for 2024?
-    - What are the sales figures for 2023 and 2024?
-    - How much was sold in 2022?
-    - Give me the total sales of 2023,2024 overall.
-    - What were the total sales in January 2023?
-    - How much did we sell last year?
-    - I want to know the total sales for this year.
+  - intent: extract_months
+    examples: |
+      - [January](month)
+      - [February](month), [March](month)
+      - [April](month), [May](month)
 
-- intent: get_country_sales
-  examples: |
-    - What are the max sales in [Canada](country)?
-    - Give me the average sales in March of 2023 in [Germany](country).
-    - How much did we sell last six months in [India](country)?
-    - What was the total sales in [Australia](country) last year?
-    - Max sales in [Mexico](country)?
-    - Average sales in [France](country) for January 2022?
-
-- intent: get_total_revenue
-  examples: |
-    - What are the sales exceeding $100000 in [Canada](country)?
-    - Give me the average sales in March of 2023 in [Germany](country).
-    - How much did we sell last six months in [India](country)?
-    - Max sales in [Mexico](country) exceeding $50000?
-
-- intent: get_country_list
-  examples: |
-    - How many countries are there?
-    - List all countries.
-    - What countries do we have in our data?
-
-- intent: get_plan_names
-  examples: |
-    - How many plans do we have?
-    - List all the plans.
-    - What are the plans in my message?
-    - What are the available plans?
-    - List all plans.
-    - Show me the plans we have.
-
-- intent: get_top_countries_and_plans
-  examples: |
-    - What are the top countries by sales?
-    - Show me the best-selling countries.
-    - List the top plans by sales.
-    - Give me the top 10 countries and plans.
-
-- intent: get_sales_growth
-  examples: |
-    - What is the sales growth percentage by month?
-    - Show me the sales growth for last year.
-    - How did our sales grow this month?
-    - Give me the yearly sales growth.
-
-- intent: get_lowest_countries
-  examples: |
-    - What are the lowest countries by sales?
-    - Show me the worst-selling countries.
-    - List the bottom countries by sales count.
-- intent: get_lowest_plans
-  examples: |
-    - What are the lowest plans by sales?
-    - Show me the least popular plans.
-    - Give me the bottom 5 plans by sales count.
-- intent: get_top_regions
-  examples: |
-    - What are the top regions by sales?
-    - Show me the best-selling regions.
-    - List the top regions by sales count.
-
-- intent: get_regions
-  examples: |
-    - What are the available regions?
-    - List all regions.
-    - Show me the regions we have.
-- intent: get_sales_by_source
-  examples: |
-    - What are the top sources by sales?
-    - Show me aggregate sales by source.
-    - List all sources with total sales.
-
-- intent: get_plan_names_by_country
-  examples: |
-    - What are the available plans in [USA](country)?
-    - List the plans for [South Korea](country).
-    - Show me the plans we have in [Japan](country).
-
-- intent: get_sales_by_payment_gateway
-  examples: |
-    - What are the total sales by payment gateway?
-    - Show me the sales grouped by payment gateway.
-    - List all payment gateways with their total sales.
-
-- intent: get_sales_by_country_and_plan
-  examples: |
-    - What are the total sales by country and plan?
-    - Show me the sales grouped by country and plan.
-    - List all countries with their plans and total sales.
+  - intent: extract_years
+    examples: |
+      - [2021](year)
+      - [2022](year), [2023](year)

@@ -1,82 +1,42 @@
 version: "3.1"
-
 stories:
+  - story: Request sales data for a specific date
+    steps:
+      - intent: request_sales_data
+        entities:
+          - date: "21st October 2023"
+      - action: action_get_total_and_average_sales
 
-- story: Get current date and time
-  steps:
-  - intent: get_current_time_date
-  - action: action_get_current_time_date
+  - story: Request sales data for last three months
+    steps:
+      - intent: request_sales_data
+        entities:
+          - number: "3"
+      - action: action_get_total_and_average_sales
 
-- story: Get total sales story
-  steps:
-  - intent: get_total_sales
-  - action: action_get_total_sales
+  - story: Retrieve sales for a specific month and year
+    steps:
+      - intent: request_sales_data
+        entities:
+          - month: "September"
+          - year: "2023"
+      - action: action_get_total_and_average_sales
 
-- story: Get country sales
-  steps:
-  - intent: get_country_sales
-  - action: action_get_country_sales
+  - story: Get average sales for multiple months in one year
+    steps:
+      - intent: request_sales_data
+        entities:
+          - month_year_pairs:
+              - [9, 2023] # September, 2023 
+              - [10, 2024] # October, 2024 
+      - action: action_get_total_and_average_sales
 
-- story: Get total revenue by country
-  steps:
-  - intent: get_total_revenue
-  - action: action_get_total_revenue
-
-- story: Get list of countries
-  steps:
-  - intent: get_country_list
-  - action: action_get_countries
-- story: Get list of plans
-  steps:
-  - intent: get_plan_names
-  - action: action_get_plan_names
-
-- story: Get top countries and plans
-  steps:
-  - intent: get_top_countries_and_plans
-  - action: action_get_top_countries_and_plans
-
-- story: Get sales growth information
-  steps:
-  - intent: get_sales_growth
-  - action: action_get_sales_growth
-
-- story: Get lowest countries
-  steps:
-  - intent: get_lowest_countries
-  - action: action_get_lowest_countries
-
-- story: Get lowest plans
-  steps:
-  - intent: get_lowest_plans
-  - action: action_get_lowest_plans
-  
-- story: Get top regions
-  steps:
-  - intent: get_top_regions
-  - action: action_get_top_regions
-
-- story: Get region names
-  steps:
-  - intent: get_regions
-  - action: action_get_regions
-
-- story: Get sales by source information
-  steps:
-  - intent: get_sales_by_source
-  - action: action_get_sales_by_source
-
-- story: Get plan names by country
-  steps:
-  - intent: get_plan_names_by_country
-  - action: action_get_plan_names_by_country
-
-- story: Get sales by payment gateway information
-  steps:
-  - intent: get_sales_by_payment_gateway
-  - action: action_get_sales_by_payment_gateway
-
-- story: Get sales by country and plan information
-  steps:
-  - intent: get_sales_by_country_and_plan
-  - action: action_get_sales_by_country_and_plan
+  - story: Request total sales for multiple years
+    steps:
+      - intent: request_sales_data
+        entities:
+          - years_extracted:
+              - [2021]
+              - [2022]
+              - [2023]
+      - action: action_get_total_and_average_sales
