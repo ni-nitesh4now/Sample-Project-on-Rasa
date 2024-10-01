@@ -22,6 +22,9 @@ word_to_num = {
 }
 
 
+def filter_by_country(df,country):
+    df=df[(df['countryname'] == country) | (df['city'] == country)| (df['regionname'] == country)]
+    return df
 
 def get_month_range_from_text(text):
     pattern = r'last\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s+(month|months)\s*'
@@ -103,10 +106,23 @@ def extract_and_format_dates(sentence):
     
     return formatted_dates
 
-def calculate_total_and_average_sales(df, user_message):
+def calculate_total_and_average_sales(df, user_message,flag):
     total_sales = 0
     sales_count = 0
     results = []
+    if flag==True:
+        country_names = df['countryname'].dropna().unique().tolist()
+        citiy_names = df['city'].dropna().unique().tolist()
+        region_names = df['regionname'].dropna().unique().tolist()
+        countries = extract_country_from_text(user_message,country_names)
+        cities = extract_country_from_text(user_message,citiy_names)
+        region = extract_country_from_text(user_message,region_names)
+        countries.extend(cities)
+        countries.extend(region)
+        countries = list(set(countries))
+        if len(countries)==1:
+            df = filter_by_country(df,country=countries[0])
+        
 
     # Check for sales on specific date(s) 
     dates = extract_and_format_dates(user_message)
@@ -195,6 +211,21 @@ def calculate_total_and_average_sales(df, user_message):
             # Append results with formatted month-year string
             results.append((year, [total_sales, average_sales]))
         return results
+    
+    # highest lowest sale in a country
+    # country_names = df['countryname'].dropna().unique().tolist()
+    # citiy_names = df['city'].dropna().unique().tolist()
+    # region_names = df['regionname'].dropna().unique().tolist()
+    # countries = extract_country_from_text(user_message,country_names)
+    # cities = extract_country_from_text(user_message,citiy_names)
+    # region = extract_country_from_text(user_message,region_names)
+    # countries.extend(cities)
+    # countries.extend(region)
+    # countries = list(set(countries))
+    # if countries:
+    #     ex
+
+
 
 
     total_sales = df["SellingPrice"].sum()
@@ -203,12 +234,24 @@ def calculate_total_and_average_sales(df, user_message):
     results.append((f"All time", [total_sales, average_sales]))
     return results
 
+def format_sales_output(results):
+    message_data=[]
 
 
+    for entry in results:
+        period, sales_data = entry
+        total_sales = sales_data[0]
+        average_sales = sales_data[1]
+        
+        # Format the output message
+        message = f"The total sales of {period} is {total_sales:.2f}.\n"
+        message += f"The average sale of {period} is {average_sales:.2f}."
+        message_data.append(message)
+
+    return message_data
 
 ######################################################################################################
-#For countries
-
+#For countries    ####################################################################################
 
 def extract_country(text,country_names):
     pattern = r'\b(' + '|'.join(map(re.escape, country_names)) + r')\b'
@@ -219,13 +262,65 @@ def extract_country(text,country_names):
     return None
 
 
+#Extract couuntry names from text
+def extract_country_from_text(text, country_names):
+    text_lower = text.lower()    
+    matched_countries = [country for country in country_names if country.lower() in text_lower]
+    return matched_countries
+
+    
+def get_top_payment_gateways(df):
+    payment_gateway_counts = df['payment_gateway'].value_counts()
+    top_payment_gateways = payment_gateway_counts.head(10)    
+    top_payment_gateways_df = top_payment_gateways.reset_index()
+    top_payment_gateways_df.columns = ['Payment Gateway', 'Count']
+    return top_payment_gateways_df.to_string(index=False) 
+def get_top_ref_sites(df):
+    refsites_counts = df['Refsite'].value_counts()
+    top_refsites = refsites_counts.head(10)    
+    refsites_df = top_refsites.reset_index()
+    refsites_df.columns = ['Refsite', 'Count']
+    return refsites_df.to_string(index=False) 
+def get_top_plans(df):
+    plans_counts = df['PlanName'].value_counts()
+    top_plans = plans_counts.head(10)    
+    top_plans_df = top_plans.reset_index()
+    top_plans_df.columns = ['Plans', 'Count']
+    return top_plans_df.to_string(index=False) 
+
+def compare(df, text, parameter, countries):
+    results = ''
+    for country in countries:
+        df_country = filter_by_country(df,country=country)       
+        results+="\n"+country+"\n"
+        if parameter == 'none':
+            results+="\n".join(format_sales_output(calculate_total_and_average_sales(df_country, text,flag=False)))+"\n"
+            results+="\n"+get_top_payment_gateways(df_country)+"\n"
+            results+="\n"+get_top_plans(df_country)+"\n"
+            results+="\n"+get_top_ref_sites(df_country)+"\n"        
+        elif parameter == 'payment_gateway':
+            results+="\n"+get_top_payment_gateways(df_country)+"\n"
+        
+        elif parameter == 'Refsite':
+            results+="\n"+get_top_ref_sites(df_country)+"\n"
+        
+        elif parameter == 'PlanName':
+            results+="\n"+get_top_plans(df_country)+"\n"
+        
+        else:
+            return "wrong parameter"
+        
+    return results
+
+
 def calculate_country_data(df,user_message):
+    logging.info("Entered country calc fn")
     source_country = df['country_source'].dropna().unique().tolist()
     country_names = df['countryname'].dropna().unique().tolist()
     source = df['source'].dropna().unique().tolist()
     operators = df['OperatorType'].dropna().unique().tolist()
-    cities = df['city'].dropna().unique().tolist()
-
+    citiy_names = df['city'].dropna().unique().tolist()
+    region_names = df['regionname'].dropna().unique().tolist()
     extracted_values = []
     for ref in df['Refsite'].dropna():
         parts = ref.split('=')
@@ -233,6 +328,71 @@ def calculate_country_data(df,user_message):
             extracted_values.append(parts[1].strip())
     value_counts = pd.Series(extracted_values).value_counts()
     refSites = value_counts.to_dict()
+    text = user_message.lower()
+
+    # All list printing:
+    if any(keyword in text for keyword in ['All', 'all the', 'all', 'name', 'names']):
+        if any(keyword in text for keyword in ['country', 'countries']):
+            return "Country Names: " + ", ".join(country_names)
+        
+        elif any(keyword in text for keyword in ['source country', 'source countries']):
+            return "City Names: " + ", ".join(source_country)
+        
+        elif any(keyword in text for keyword in ['city', 'cities']):
+            return "City Names: " + ", ".join(citiy_names)
+        
+        elif any(keyword in text for keyword in ['region', 'regions']):
+            return "Region Names: " + ", ".join(region_names)
+        
+        # elif any(keyword in text for keyword in ['source', 'payment source', 'payment sources', 'payment mode', 'mode of payment']):
+        #     return "Payment Sources: " + ", ".join(source)
+        
+        # elif any(keyword in text for keyword in ['operator', 'operators']):
+        #     return "Operators: " + ", ".join(operators)
+        
+        # elif any(keyword in text for keyword in ['ref sites', 'ref', 'sites', 'reference site', 'reference sites']):
+        #     return "Operators: " + ", ".join(refSites)
+        
+        else:
+            return "Couldn't understand"
+    
+
+    # Compare two countries    
+    countries = extract_country_from_text(text,country_names)
+    cities = extract_country_from_text(text,citiy_names)
+    region = extract_country_from_text(text,region_names)
+    countries.extend(cities)
+    countries.extend(region)
+    countries = list(set(countries))
+    if countries:
+        comparison = compare(df,text,parameter='none',countries=countries)
+        message = f"Here is the comparison:  {comparison}\n"
+        return message
+    
+    
+    return 'Cant process country/region/city name'
+
+    
+
+        
+
+
+
+                
+            
+
+
+
+
+    return 'Bye'
+
+    
+
+
+
+
+
+
 
 
 

@@ -20,7 +20,17 @@ nlu:
       - total sales for [last two](number) months
       - retrieve data for [December](month) [2020](year)
       - sales of [September](month), [October](month), [Nov](month)
+      - [july](month)
+      - [january](month)
+      - [february](month)
+      - [august](month)
+      - [september](month)
+      - [may](month)
+      - [dec](month)
+      - [sept](month)
       - Total sales
+      - [2024](year)
+      - [2021](year)
       - Overall sales of the company
       - Sum of sales till now
 
@@ -34,3 +44,83 @@ nlu:
     examples: |
       - [2021](year)
       - [2022](year), [2023](year)
+
+
+  - intent: query_country_city_sales
+    examples: |
+      - Total sales in [USA](country) for [2023](date)
+      - Sales growth percentage in [Germany](country)
+      - Compare sales between [USA](country) and [Canada](country)
+      - Highest sales in [France](country)
+      - Lowest sales in [Italy](country)
+      - Sales for [UK](country) in [last month](time_period)
+      - Total sales in [Australia](country) for [March 2023](date)
+      - Average sales in [Brazil](country) during [Q1 2023](time_period)
+      - Sales comparison between [India](country) and [China](country)
+      - What were the total sales in [Mexico](country) last year?
+      - all country names
+      - all city names
+      - all region names
+      - all countries
+      - all country [september](month)
+      - [USA] (country) [september](month)
+      - [China] (country) 
+      - [Canada] (country)
+      - [India] (country)
+      - all country [september](month)
+      - [USA] (country) [september](month)
+      - [China] (country) [21/10/2021](date)
+      - [Canada] (country) [21/10/2021](date)
+      - [India] (country) [January](month) [2022](year)
+      - compare [Australia](country) and [USA](country)
+      - compare between [USA](country) [China](country) and [canada](country)
+      - compare sales of [India](country) and [Shri Lanka](country)
+      - compare [Nepal](country) and [China](country) [september](month) [2024](year)
+      - [Thane] (city) [January](month) [2022](year)
+      - [Los Angeles] (city)
+      - [Cork] (city)
+      - [Durres] (city)
+      - [Honcho] (city)
+      - [Santiago de Cali](city) [January](month) [2022](year)
+      - [Larnaca] (city)
+      - [Gersthofen] (city) [January](month) [2022](year)
+      - [Cork] (city) [September](month) [2022](year), [October](month) [2022](year), [Nov](month) [2022](year)
+      - [Durres] (city) [Nov](month) [2021](year)
+      - [Honcho] (city) [September](month), [October](month), [Nov](month)
+      - [Santiago de Cali](city) [2023](year)
+      - [Larnaca] (city) [Nov](month) [2021](year)
+      - [Gersthofen] (city) [2021](year)
+
+      
+  - intent: query_plan_sales
+    examples: |
+      - Sales for [Plan A](plan) in [UK](country) during [January 2023](date)
+      - Which plan sold the most in [Q1 2023](time_period)?
+      - Compare sales between [Plan A](plan) and [Plan B](plan)
+      - Growth percentage for [Plan C](plan)
+      - Total sales for [Plan D](plan) in [2022](date)
+      - Average sales for [Plan E](plan) last month
+  # Which plan had the highest sales during the last quarter?
+      
+  - intent: query_payment_source_sales
+    examples: |
+      - Total sales through [PayPal](payment_gateway)
+      - Which payment gateway had the highest sales in [Q1 2023](time_period)?
+      - Growth percentage for a specific payment gateway
+      - Compare sales between different payment gateways
+      - Total revenue from credit card payments in [2022](date)
+      - Sales through [Stripe](payment_gateway) last month
+  #Which payment method was most popular last year?
+      
+  - intent: query_source_of_sale
+    examples: |
+      - Total sales originating from (web)[source]
+      - Total sales originating from (Web)[source]
+      - Total sales originating from (android)[source]
+      - Total sales originating from (iOS)[source]
+      - Total sales from (Offline)[source]
+      - Total sales SOURCE from (APP)[source]
+      - Total sales of (free sim)[source]
+      - Which source[source] had the highest/lowest sales in a given (period)[time] ?
+  # Compare total sales from offline and online sources
+  # Highest sales from referrals during the last year

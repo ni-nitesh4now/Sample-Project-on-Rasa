@@ -40,3 +40,25 @@ stories:
               - [2022]
               - [2023]
       - action: action_get_total_and_average_sales
+
+####################################################################################
+
+  - story: country and city sales query
+    steps:
+    - intent: query_country_city_sales
+    - action: action_country_city_sales
+
+  - story: plans sales query
+    steps:
+    - intent: query_plan_sales
+    - action: action_plan_sales
+
+  - story: payment source sales query
+    steps:
+    - intent: query_payment_source_sales
+    - action: action_payment_source_sales
+
+  - story: source of sale query
+    steps:
+    - intent: query_source_of_sale
+    - action: action_source_of_sale

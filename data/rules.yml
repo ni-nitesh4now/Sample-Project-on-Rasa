@@ -4,3 +4,23 @@ rules:
     steps:
       - intent: request_sales_data
       - action: action_get_total_and_average_sales
+    
+  - rule: Handle country and city sales queries
+    steps:
+      - intent: query_country_city_sales
+      - action: action_country_city_sales
+
+  - rule: Handle plans sales queries
+    steps:
+      - intent: query_plan_sales
+      - action: action_plan_sales
+
+  - rule: Handle payment source sales queries
+    steps:
+      - intent: query_payment_source_sales
+      - action: action_payment_source_sales
+
+  - rule: Handle source of sale queries
+    steps:
+      - intent: query_source_of_sale
+      - action: action_source_of_sale

@@ -1,15 +1,29 @@
 version: "3.0"
 intents:
   - request_sales_data
+  - query_country_city_sales
+  - query_plan_sales
+  - query_payment_source_sales
+  - query_source_of_sale
 
 entities:
   - month
   - year
   - date
   - number
+  - country
+  - city
+  - region
+  - plan
+  - payment_gateway
+  - time_period
 
 actions:
   - action_get_total_and_average_sales
+  - action_country_city_sales
+  - action_plan_sales
+  - action_payment_source_sales
+  - action_source_of_sale
 
 responses:
   utter_sales_data:
@@ -17,3 +31,7 @@ responses:
 
   utter_ask_for_details:
     - text: "Could you please provide more details about the sales you want to calculate?"
+  utter_sales_info:
+    - text: "Here is the sales information you requested."
+  utter_no_data:
+    - text: "I'm sorry, but I couldn't find any data for that query."
