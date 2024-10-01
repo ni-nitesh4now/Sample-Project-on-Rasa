@@ -126,16 +126,16 @@ def calculate_total_and_average_sales(df, user_message,flag):
 
     # Check for sales on specific date(s) 
     dates = extract_and_format_dates(user_message)
-    logging.info(dates)
+    # logging.info(dates)
     if dates:
         for date_str in dates:
             date_obj = datetime.strptime(date_str, '%d/%m/%Y')
             filtered_df = df[df['PurchaseDate'].dt.date == date_obj.date()]
             total_sales += filtered_df['SellingPrice'].sum()
-            logging.info(total_sales)
+            # logging.info(total_sales)
             sales_count += filtered_df.shape[0]
             average_sales = total_sales / sales_count if sales_count > 0 else 0
-            logging.info(average_sales)
+            # logging.info(average_sales)
             results.append((date_str, [total_sales, average_sales]))
         return results
         
@@ -168,7 +168,7 @@ def calculate_total_and_average_sales(df, user_message,flag):
             days_in_month = pd.Period(year=year, month=month, freq='M').days_in_month
             average_sales = total_sales / days_in_month if days_in_month > 0 else 0
             
-            logging.info([total_sales, average_sales])
+            # logging.info([total_sales, average_sales])
             
             # Append results with formatted month-year string
             results.append((f"{month}/{year}", [total_sales, average_sales]))
@@ -193,7 +193,7 @@ def calculate_total_and_average_sales(df, user_message,flag):
             total_sales = df[(df['PurchaseDate'].dt.month == month) & (df['PurchaseDate'].dt.year == current_year)]['SellingPrice'].sum()
             days_in_month = pd.Period(year=current_year, month=month, freq='M').days_in_month
             average_sales = total_sales / days_in_month if days_in_month > 0 else 0
-            logging.info([total_sales, average_sales])
+            # logging.info([total_sales, average_sales])
             results.append((f"{month}/{current_year}", [total_sales, average_sales]))
         return results
         
@@ -207,7 +207,7 @@ def calculate_total_and_average_sales(df, user_message,flag):
             total_sales = filtered_sales['SellingPrice'].sum()
             average_sales = total_sales / 12
             
-            logging.info([total_sales, average_sales])
+            # logging.info([total_sales, average_sales])
             # Append results with formatted month-year string
             results.append((year, [total_sales, average_sales]))
         return results
@@ -230,7 +230,7 @@ def calculate_total_and_average_sales(df, user_message,flag):
 
     total_sales = df["SellingPrice"].sum()
     average_sales=0
-    logging.info([total_sales, average_sales])
+    # logging.info([total_sales, average_sales])
     results.append((f"All time", [total_sales, average_sales]))
     return results
 
@@ -314,7 +314,7 @@ def compare(df, text, parameter, countries):
 
 
 def calculate_country_data(df,user_message):
-    logging.info("Entered country calc fn")
+    # logging.info("Entered country calc fn")
     source_country = df['country_source'].dropna().unique().tolist()
     country_names = df['countryname'].dropna().unique().tolist()
     source = df['source'].dropna().unique().tolist()
